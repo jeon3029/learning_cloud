@@ -1,0 +1,28 @@
+= Api Gateway
+
+.Apigateway 를 앞단에 두는 이점
+image:./img/img2_1.png[] 
+
+== Netflix Ribbon
+
+* Spring cloud 에서의 MSA 통신?
+** RestTemplate
+** Feign Client
+
+* Ribbon : Client side 에서 어떤 msa 를 호출할 지 판단하는 load balancer
+** Spring-boot 2.4 부터 Maintenance 상태
+** 비동기 처리에 적합하지 않음
+
+
+== Netflix Zuul
+
+* Gateway 역할
+** Spring-boot 2.4 부터 Maintenance 상태
+** zuul1 은 비동기 지원하지 않음
+** https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now[]
+
+== Spring cloud Gateway
+
+link:./gateway[SCG sample]
+
+
