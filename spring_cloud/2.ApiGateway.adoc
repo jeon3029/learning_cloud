@@ -56,3 +56,14 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 ----
 
+
+=== Server port 다르게 실행하는 방법
+
+. Intellij -> Vmoptions -> -Dserver.port=9003
+. mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=9003'
+. java -jar -Dserver.port=9004 ./target/userservice-0.0.1-SNAPSHOT.jar
+
+=== Output
+
+.loadbalancing to first service
+image:./img/gateway.png[] 
