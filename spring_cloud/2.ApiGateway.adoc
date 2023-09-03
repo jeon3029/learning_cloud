@@ -23,13 +23,18 @@ image:./img/img2_1.png[]
 
 == Spring cloud Gateway
 
-link:./gateway[SCG sample]
+link:./gateway/apigateway[SCG sample]
+link:./gateway/firstservice[service1 sample]
+link:./gateway/secondsercie[service1 sample]
 
 == Spring cloud Gateway with Eureka Discovery
 
 * route 정보를 eureka 서버로 부터 받음
 
-link:./gateway[SCG sample]
+link:./gateway/apigateway[SCG sample]
+link:./gateway/firstservice[service1 sample]
+link:./gateway/secondsercie[service1 sample]
+link:./gateway/discoveryservice[SCG sample]
 
 .dependency 추가 필요
 [source,xml]
