@@ -1,0 +1,15 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: discoveryservice
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+

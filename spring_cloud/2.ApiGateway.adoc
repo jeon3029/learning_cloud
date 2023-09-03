@@ -25,4 +25,29 @@ image:./img/img2_1.png[]
 
 link:./gateway[SCG sample]
 
+== Spring cloud Gateway with Eureka Discovery
+
+* route 정보를 eureka 서버로 부터 받음
+
+link:./gateway[SCG sample]
+
+.dependency 추가 필요
+[source,xml]
+----
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+----
+
+.설정 활성화 필요
+[source,yaml]
+----
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+----
 
