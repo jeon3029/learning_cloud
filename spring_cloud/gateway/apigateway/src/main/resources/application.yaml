@@ -1,46 +1,1 @@
-server:
-  port: 8000
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-
-
-# routing ? property ? ? ?? ?? java filter ?? ? ? ??
-spring:
-  application:
-    name: apigateway
-  cloud:
-    gateway:
-      default-filters:
-        - name: GlobalFilter
-          args:
-            baseMessage: Spring Cloud Gateway Global Filter
-            preLogger: true
-            postLogger: true
-      routes:
-        - id: first-service
-          uri: lb://FIRSTSERVICE
-          predicates:
-            - Path=/first-service/**
-          filters:
-            - AddRequestHeader=req, req
-            - AddResponseHeader=res, res
-            - CustomFilter
-        - id: second-service
-          uri: lb://SECONDSERVICE
-          predicates:
-            - Path=/second-service/**
-          filters:
-            - AddRequestHeader=req, req
-            - AddResponseHeader=res, res
-            - name: CustomFilter
-            - name: LoggingFilter
-              args:
-                baseMessage: Hi, there
-                preLogger: true
-                postLogger: true
-
+server:  port: 8000eureka:  client:    register-with-eureka: true    fetch-registry: true    service-url:      defaultZone: http://127.0.0.1:8761/eureka# routing ? property ? ? ?? ?? java filter ?? ? ? ??spring:  application:    name: apigateway  cloud:    gateway:      default-filters:        - name: GlobalFilter          args:            baseMessage: Spring Cloud Gateway Global Filter            preLogger: true            postLogger: true      routes:        - id: first-service          uri: lb://FIRSTSERVICE          predicates:            - Path=/first-service/**          filters:            - AddRequestHeader=req, req            - AddResponseHeader=res, res            - CustomFilter        - id: second-service          uri: lb://SECONDSERVICE          predicates:            - Path=/second-service/**          filters:            - AddRequestHeader=req, req            - AddResponseHeader=res, res            - name: CustomFilter            - name: LoggingFilter              args:                baseMessage: Hi, there                preLogger: true                postLogger: true
