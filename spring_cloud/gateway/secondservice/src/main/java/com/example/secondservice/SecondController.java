@@ -1,6 +1,9 @@
 package com.example.secondservice;
 
 import lombok.extern.slf4j.Slf4j;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,8 @@ public class SecondController {
     }
 
     @GetMapping("/check")
-    public String check(){
+    public String check(HttpServletRequest req){
+      log.info("Server port : {}",req.getServerPort());
         return "this is second service CHECK";
     }
 

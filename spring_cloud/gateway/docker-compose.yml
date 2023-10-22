@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+  discoveryservice:
+    image: "jeon3029/discoveryservice"   
+    container_name: "discoveryservice"
+    working_dir: "/usr/src/app"
+    restart: always
+    ports:
+    - "8761:8761"
+    volumes:
+    - "$PWD/discoveryservice:/usr/src/app"
+  apigateway:
+    image: "jeon3029/apigateway"   
+    container_name: "apigateway"
+    working_dir: "/usr/src/app"
+    restart: always
+    ports:
+    - "8000:8000"
+    volumes:
+    - "$PWD/apigateway:/usr/src/app"
+    links:
+    - discoveryservice
+  firstservice:
+    image: "jeon3029/firstservice"   
+    container_name: "firstservice"
+    working_dir: "/usr/src/app"
+    restart: always
+    ports:
+    - "8080:8080"
+    volumes:
+    - "$PWD/firstservice:/usr/src/app"
+    links:
+    - discoveryservice
+  secondservice:
+    image: "jeon3029/secondservice"   
+    container_name: "secondservice"
+    working_dir: "/usr/src/app"
+    restart: always
+    ports:
+    - "8081:8081"
+    volumes:
+    - "$PWD/secondservice:/usr/src/app"
+    links:
+    - discoveryservice
